@@ -1,37 +1,160 @@
-# Documentación del Desarrollo de Software
+# Documentación del Desarrollo de Software - Frostbites
 
-## 1. Informe de especificación de requisitos
-Este documento describe en detalle los requisitos funcionales y no funcionales del software. Incluye especificaciones del sistema, restricciones, casos de uso y criterios de aceptación para garantizar el cumplimiento de las necesidades del cliente.
+## 1. Informe de Especificación de Requisitos
 
-## 2. Documentación de análisis del software (vistas dinámicas del software)
-Contiene el análisis del comportamiento del sistema a lo largo del tiempo. Incluye diagramas de secuencia, diagramas de actividad y modelos de interacción para ilustrar la dinámica del software y la comunicación entre sus componentes.
+### Requisitos Funcionales:
 
-## 3. Documentación de propuesta técnica del software
-Presenta la solución técnica elegida para el desarrollo del software. Incluye la arquitectura general, tecnologías utilizadas, justificación de las decisiones técnicas y comparativas con otras posibles soluciones.
+- Sistema de autenticación de usuarios (registro, login y roles de usuario).
+- Administración de productos (CRUD para productos y categorías).
+- Carrito de compras con gestión de pedidos.
+- Integración con pasarela de pagos.
+- Panel de administración para gestionar ventas y usuarios.
 
-## 4. Documentación de diseño del software
-Describe la estructura y diseño del sistema. Se divide en:
-   - **Interfaces gráficas:** Prototipos y especificaciones de diseño de la interfaz de usuario.
-   - **Modelo arquitectónico:** Estructura general del software, como MVC, capas o microservicios.
-   - **Patrones de diseño:** Aplicación de patrones como Singleton, Factory o Observer para mejorar la mantenibilidad y escalabilidad.
-   - **Modelo de datos:** Definición de entidades, relaciones y estructuras de almacenamiento de datos.
+### Requisitos No Funcionales:
 
-## 5. Artefactos de código (aplicación escritorio, web, móvil)
-Conjunto de archivos fuente, scripts y componentes generados durante el desarrollo de la aplicación. Puede incluir código para aplicaciones de escritorio, web y móviles según la plataforma objetivo.
+- Seguridad en el acceso a la información (autenticación JWT y cifrado de contraseñas).
+- Rendimiento optimizado con consultas eficientes en la base de datos.
+- Implementación responsiva para compatibilidad con dispositivos móviles.
+- Despliegue en Vercel (frontend), Render (backend) y Supabase (base de datos).
 
-## 6. Documentación de pruebas
-Registro de los procesos de prueba realizados sobre el software. Incluye:
-   - **Casos de prueba:** Escenarios evaluados con entradas esperadas y resultados.
-   - **Pruebas unitarias, de integración y de sistema.**
-   - **Reporte de errores y correcciones aplicadas.**
+## 2. Documentación de Propuesta Técnica del Software
 
-## 7. Procedimiento de implementación del software
-Guía detallada sobre cómo desplegar el software en el entorno de producción. Incluye configuraciones necesarias, pasos de instalación, scripts de despliegue y validaciones posteriores a la implementación.
+### Arquitectura:
 
-## 8. Documentación de acciones correctivas, preventivas y de mejoramiento del software
-Registro de acciones tomadas para corregir errores, evitar futuros problemas y mejorar el software. Incluye historial de cambios, optimizaciones de rendimiento y mejoras en la seguridad o usabilidad.
+Aplicación basada en PERN stack (PostgreSQL, Express.js, React, Node.js).
 
-## 9. Manuales técnico, instalación y usuario final
-   - **Manual técnico:** Explicación detallada de la arquitectura, configuración y mantenimiento del software.
-   - **Manual de instalación:** Pasos detallados para instalar y configurar el software en distintos entornos.
-   - **Manual de usuario final:** Instrucciones para el uso del software por parte de los usuarios finales, con capturas de pantalla y ejemplos de uso.
+### Tecnologías utilizadas:
+
+- **Frontend:** React.js.
+- **Backend:** Node.js con Express.
+- **Base de datos:** PostgreSQL.
+- **Autenticación:** JSON Web Tokens (JWT).
+- **Control de versiones:** Git, GitHub.
+
+## 3. Documentación de Diseño del Software
+
+- **Interfaces gráficas:** [Figma Design Link](https://www.figma.com/design/7GBrymPq3Tt4rJ2m82602O/FROST-BITES---WEBSITE?node-id=0-1&t=3UtewBaY5jyz2h5a-1)
+- **Modelo Arquitectónico:** Basado en REST API con una estructura modular en el backend.
+- **Patrones de Diseño:**
+   - MVC para la organización del backend.
+   - Uso de Custom Hooks en React para reutilización de lógica.
+- **Modelo de Datos:** PostgreSQL con diseño relacional para productos, usuarios y pedidos. [DB Design Link](https://dbdiagram.io/d/FROST-BITES-DB-669bcca58b4bb5230ee01b93)
+
+## 4. Artefactos de Código
+
+### Repositorio:
+
+[GitHub - Frostbites](https://github.com/darianmorat/frostbites/)
+
+Contiene:
+
+- **Frontend:** Código React.
+- **Backend:** Servidor Express con controladores y rutas.
+
+## 5. Documentación de Pruebas
+
+### Casos de prueba:
+
+- [Postman Link](https://www.postman.com/aerospace-architect-11303455/frostbites/overview)
+- Pruebas unitarias con Jest para funciones clave.
+- Pruebas de integración en endpoints de API.
+- Pruebas funcionales en UI.
+
+### Reporte de errores:
+
+Documentado en Issues de GitHub.
+
+## 6. Documentación de Acciones Correctivas, Preventivas y de Mejoramiento
+
+### Historial de cambios:
+
+Registro en commits de GitHub.
+
+### Optimizaciones recientes:
+
+- Mejora en consultas a la base de datos.
+- Reducción del tiempo de carga de la UI.
+
+### Seguridad:
+
+- Implementación de validación de datos y protección contra inyecciones SQL.
+
+## 7. Manuales
+
+### Manual de Instalación:
+
+Para correr el proyecto de manera local, sigue los siguientes pasos: 
+
+#### Prerequisitos
+
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Git](https://git-scm.com/)
+- [npm](https://www.npmjs.com/)
+
+#### Paso a paso instalacion
+
+1. Clonar el respositorio:
+
+```bash
+git clone https://github.com/darianmorat/frostbites.git
+```
+
+2. Navigar al repositorio del proyecto:
+
+```bash
+cd frostbites
+```
+
+3. Establecer variables de entorno:
+
+```bash
+# Client .env
+BASE_URL=your_base_url
+
+# Server .env
+PORT=your_server_port
+JWT_SECRET=your_jwt_secret_key
+
+BASE_URL=your_base_url
+DATABASE_URL=your_database_url
+
+ADMIN_EMAIL=your_admin_email
+ADMIN_ROLE=your_admin_role
+USER_ROLE=your_user_role
+
+APP_EMAIL=email_for_nodemailer
+PASSWORD_APP_EMAIL=your_email_password
+
+STRIPE_SECRET_KEY=your_secret_key
+```
+
+4. Instalar dependencias para el cliente y servidor:
+
+```bash
+# Install client dependencies
+cd client && npm install
+
+# Install server dependencies
+cd ../server && npm install
+```
+
+5. Inicializar la base de datos:
+
+```bash
+# Navigate to the file directory
+cd server/db
+
+# Run the script to create tables
+psql -U your_username -d your_database_name -f init.sql
+```
+
+6. Correr los entornos de desarrollo:
+
+```bash
+# For the client, start it using:
+cd client && npm run dev
+
+# For the server, start it using:
+cd ../server && npm run dev
+```
